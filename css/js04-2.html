@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function book(bookid,title,author,price) {
+		   this.bookid = bookid;
+		   this.title = title;
+		   this.author = author;
+		   this.price = price;
+		   this.print = printbook;
+		}
+		function printbook() {			
+   			document.write("書籍ID : " + this.bookid + "<br/>");
+   			document.write("書名 : " + this.title + "<br/>");
+   			document.write("作者 : " + this.author + "<br/>");
+   			document.write("價格 : $" + this.price + "<br/>");
+   			document.write("數量 : " + this.amount + "<br/><hr/>");
+   		}
+		function Total() {
+			var total = this.amount * this.price;
+			document.write("總價 : " + total + "<br/><hr/>");
+		}
+	</script>
+</head>
+<body>
+	<h2>使用建構函數建立物件</h2>	
+	<hr/>
+	<script>
+		var book1 = new book("A12345","小王子","prince",350);
+		var book2 = new book("B12255","飢餓遊戲","David",490);
+		book.prototype.amount = 500;
+		book.prototype.showTotal = Total;
+		book2.amount = 200;
+		book1.print();
+		book1.showTotal();
+		book2.print();
+		book2.showTotal();
+	</script>
+</body>
+</html>
